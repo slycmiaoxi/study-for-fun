@@ -1,0 +1,55 @@
+server:
+  port: 8094
+  servlet:
+    session:
+      tracking-modes: cookie
+      cookie:
+        http-only: true
+        name: CA.access.Token.id
+      timeout: 80M
+      persistent: true
+    context-path: /
+  compression:
+    enabled: true
+spring:
+  devtools:
+    restart:
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+
+  servlet:
+    multipart:
+      max-request-size: 200MB
+      max-file-size: 20MB
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&allowMultiQueries=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456789
+      test-while-idle : true
+      test-on-borrow : true
+      validation-query : SELECT 1
+      time-between-eviction-runs-millis : 300000
+      min-evictable-idle-time-millis : 1800000
+
+  messages:
+    basename: i18n.Message
+  freemarker:
+    request-context-attribute: ctx
+  cache:
+    type: simple
+logging:
+  level:
+    com.slycmiaoxi.job.mapper.api: debug
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+
+
+

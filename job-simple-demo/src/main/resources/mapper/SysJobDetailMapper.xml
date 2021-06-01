@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.jobsimpledemo.mapper.SysJobDetailMapper">
+    <select id="listPageInfo" parameterType="com.example.jobsimpledemo.pojo.JobDetailVo"
+    resultType="com.example.jobsimpledemo.pojo.domain.SysJobDetail">
+    SELECT
+    id as id ,
+    job_name AS jobName,
+    job_group AS jobGroup,
+    job_class_name AS jobClassName,
+    job_cron AS  jobCron,
+    job_type AS jobType,
+    create_time as createTime
+    FROM
+    sys_job_detail
+    <where>
+        <if test="data.jobName !=null and data.jobName!=''">
+            and job_name like ('%' + #{data.jobName} + '%')
+        </if>
+        <if test="data.jobGroup !=null and data.jobGroup !=''">
+            and job_group like ('%' + #{data.jobGroup} + '%')
+        </if>
+    </where>
+</select>
+</mapper>
