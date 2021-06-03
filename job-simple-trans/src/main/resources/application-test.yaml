@@ -1,0 +1,40 @@
+server:
+  port: 8087
+  servlet:
+      session:
+        tracking-modes: cookie
+        cookie:
+          http-only: true
+          name: CA.access.Token.id
+        timeout: 80M
+        persistent: true
+      context-path: /
+  compression:
+      enabled: true
+
+spring:
+  application:
+    name: job-trans-api
+  devtools:
+    restart:
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+
+  datasource:
+     type: com.zaxxer.hikari.HikariDataSource
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: 'jdbc:mysql://localhost:3306/test?useUnicode=true&useSSL=false&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai'
+     username: 'root'
+     password: '123456789'
+
+logging:
+  config: classpath:logback.xml
+  level:
+      com.eliansun.trans.mapper: debug
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
