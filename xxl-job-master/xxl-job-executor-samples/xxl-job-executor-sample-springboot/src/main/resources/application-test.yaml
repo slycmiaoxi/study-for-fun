@@ -1,0 +1,66 @@
+server:
+  port: 8081
+  servlet:
+      session:
+        tracking-modes: cookie
+        cookie:
+          http-only: true
+          name: CA.access.Token.id
+        timeout: 80M
+        persistent: true
+      context-path: /
+  compression:
+      enabled: true
+
+spring:
+  application:
+    name: xxl-executor-job
+  devtools:
+    restart:
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+
+  datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: 'jdbc:mysql://localhost:3306/test_job?useUnicode=true&useSSL=false&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai'
+     username: 'root'
+     password: '123456'
+     druid:
+       min-idle: 10
+       max-active: 100
+       initial-size: 10
+       max-wait: 60000
+       timeBetweenEvictionRunsMillis: 60000
+       minEvictableIdleTimeMillis: 300000
+       validation-query: SELECT 1
+       filters: stat
+       filter:
+         stat:
+           log-slow-sql: true
+         wall:
+           config:
+              multi-statement-allow: true
+
+
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:8080/xxl-job-admin
+    executor:
+      address:
+      appname: xxl-job-executor
+      ip:
+      port: 0
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 15
+    accessToken:
+logging:
+  config: classpath:logback.xml
+
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
