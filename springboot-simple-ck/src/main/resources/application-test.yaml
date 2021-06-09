@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+      context-path: /
+  compression:
+      enabled: true
+
+spring:
+  application:
+    name: springboot-ck
+  devtools:
+    restart:
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+
+  datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: 'jdbc:mysql://localhost:3306/test_job?useUnicode=true&useSSL=false&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai'
+     username: 'root'
+     password: '123456789'
+     druid:
+       min-idle: 10
+       max-active: 100
+       initial-size: 10
+       max-wait: 60000
+       timeBetweenEvictionRunsMillis: 60000
+       minEvictableIdleTimeMillis: 300000
+       validation-query: SELECT 1
+       filters: stat
+       filter:
+         stat:
+           log-slow-sql: true
+         wall:
+           config:
+              multi-statement-allow: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+system:
+  param:
+    data-storage-type: mysql
