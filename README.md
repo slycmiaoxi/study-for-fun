@@ -1,3 +1,9 @@
+# study-for-fun
+### 前言
+该仓库目的为理论结合实践去记录一些有趣的东西，如果对您有帮助，欢迎star
+同时也欢迎访问笔者业余最新迭代版本作品[微交流学习平台](http://180.76.39.229/article/detail/d67937e8d68846b39990904dc98f633f)
+
+
 # 项目目录介绍
 
  -  [job-simple-demo](https://blog.csdn.net/weixin_28727189/article/details/117390897) 数据拉取之动态job（一）
