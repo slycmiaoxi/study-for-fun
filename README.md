@@ -12,6 +12,7 @@
  -  [springboot-simple-ck](https://blog.csdn.net/weixin_28727189/article/details/117701715)线程池+策略模式+反射实现动态批量操作clickhouse
  -  [springboot-simple-es](https://blog.csdn.net/weixin_28727189/article/details/117898303)springboot之整合Elasticsearch实现搜索
  -  [open-simple-gpt](https://blog.csdn.net/weixin_28727189/article/details/130459919)如何设计开放平台接口与集成chatgpt
+ -  [sso](https://blog.csdn.net/weixin_28727189/article/details/130462361)基于Oauth2实现单点登录
  - ...持续更新
 
 # 博文索引
