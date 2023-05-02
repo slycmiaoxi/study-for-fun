@@ -1,0 +1,17 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: client
+  redis:
+    database: 2
+    host:
+    port:
+    password: 
+    timeout: 60000
+client:
+  open:
+    appId: 123
+    appSecret: 321
+    path: http://localhost:8080/api/server/chat/v1/completions

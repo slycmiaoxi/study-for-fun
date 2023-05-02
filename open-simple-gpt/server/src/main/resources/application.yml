@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: server
+  redis:
+    database: 2
+    host:
+    port:
+    password:
+    timeout: 60000
