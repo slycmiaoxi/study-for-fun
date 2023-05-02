@@ -1,0 +1,37 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: sso-auth
+  datasource:
+    druid:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&useSSL=false&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+      username: root
+      password: root
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 30000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 5
+    host:
+    port:
+    password:
+    timeout: 15000
+mybatis-plus:
+  #开启驼峰配置
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: is_del
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

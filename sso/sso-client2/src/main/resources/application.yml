@@ -1,0 +1,28 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: sso-client2
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 5
+    host:
+    port:
+    password:
+    timeout: 15000
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: 'http://localhost:8080/rsa/publicKey'
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/actuator/**"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+redis-token-flag: 1
